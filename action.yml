@@ -8,4 +8,6 @@ inputs:
     
 runs:
   using: 'node16'
+  steps:
+    - run: npm install
   main: './dist/index.js'
