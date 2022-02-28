@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: npm install @actions/core
       - uses: Riyabelle25/repo-report-cache@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}         
