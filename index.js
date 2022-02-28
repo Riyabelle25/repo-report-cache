@@ -11,6 +11,7 @@ const main = async () => {
 	try {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		const token = core.getInput('token', { required: true }); // to be used when introducing GH Action YAML
 		/*
 		 * const {GH_TOKEN} = process.env;
@@ -29,9 +30,12 @@ const main = async () => {
 =======
 		// const token = core.getInput('token', { required: true });   //to be used when introducing GH Action YAML
 >>>>>>> 91ff425 (bfix: all repos not showing up by execsync)
+=======
+		const token = core.getInput('token', { required: true });   //to be used when introducing GH Action YAML
+>>>>>>> 3620aca (bfix: all repos not showing up by execsync)
 		// eslint-disable-next-line no-undef
-		const {GH_TOKEN} = process.env;
-		const token = GH_TOKEN;
+		// const {GH_TOKEN} = process.env;
+		// const token = GH_TOKEN;
         
 		const getRepos = execSync(`npx repo-report ls --token ${token}`, {encoding: 'utf-8'});
 		const repositories = getRepos.substring(0,getRepos.length-1).split('\n');
