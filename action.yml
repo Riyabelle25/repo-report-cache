@@ -8,6 +8,4 @@ inputs:
     
 runs:
   using: 'node16'
-  steps:
-    - run: echo 'hi'
   main: './dist/index.js'
