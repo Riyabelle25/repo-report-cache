@@ -5,7 +5,7 @@ on:
     - cron: "*/5 * * * *"
   push:
     branches:
-      - 'test'
+      - 'test-actions'
 
 jobs:
   openssf:
