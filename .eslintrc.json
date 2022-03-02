@@ -1,0 +1,4 @@
+{
+    "root": true,
+    "extends": "@ljharb/eslint-config/node/16"   
+}
