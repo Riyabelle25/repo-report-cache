@@ -37,8 +37,17 @@ const main = async () => {
 		});
 
 		const json = JSON.stringify(repoOSSF, null, 4);
+<<<<<<< HEAD
 		const result = await fs.writeFile('repo-report-ossf-score.json', json, 'utf8');
 		console.log(result);
+=======
+		await fs.writeFile('repo-report-ossf-score.json', json, 'utf8', (err) => {
+			if (err) {
+				return console.error(err);
+			}
+			return console.log(err);
+		});
+>>>>>>> 4c8dad3 ([lint] code review)
 
 	} catch (error) {
 		core.setFailed(error.message);
