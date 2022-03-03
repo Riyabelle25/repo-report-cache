@@ -3,9 +3,9 @@ name: cache repo-report openssf score daily
 on:
   schedule:
     - cron: "0 0 1 1-12 *"
-  push:
-    branches:
-      - 'main'
+  # push:                   # commented out to avoid using up GH Action quotas for the time being
+  #   branches:
+  #     - 'main'
 
 jobs:
   openssf:
