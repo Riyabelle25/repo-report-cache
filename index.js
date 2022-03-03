@@ -5,7 +5,11 @@
 const core = require('@actions/core');
 // const github = require('@actions/github');
 const { execSync } = require('child_process');
+<<<<<<< HEAD
 const fs = require('fs/promises');
+=======
+const fs = require('fs');
+>>>>>>> 1de8193 ([fix] code review)
 
 const main = async () => {
 	try {
@@ -15,6 +19,7 @@ const main = async () => {
 		 * const token = GH_TOKEN;
 		 */
 
+<<<<<<< HEAD
 		const getRepos = execSync('npx repo-report ls', {
 			encoding: 'utf-8', env: {
 				...process.env,
@@ -22,6 +27,11 @@ const main = async () => {
 			},
 		});
 		const repositories = getRepos.slice(0, getRepos.length - 1).split('\n');
+=======
+		const getRepos = execSync('npx repo-report ls', { encoding: 'utf-8', env: { GH_TOKEN: token, GITHUB_AUTH_TOKEN: token } });
+		const repositories = getRepos.slice(0, getRepos.length - 1).split('\n');
+		console.log(repositories, getRepos);
+>>>>>>> 1de8193 ([fix] code review)
 		const repoOSSF = {};
 		repositories.forEach((repository) => {
 			console.log(repository);

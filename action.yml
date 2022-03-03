@@ -5,10 +5,6 @@ inputs:
   token:
     description: 'The token to use to access the GitHub API'
     required: true
-<<<<<<< HEAD
-=======
-    
->>>>>>> 0f3bf20 ([lint] YAML)
 runs:
   using: 'node16'
   main: './index.js'
