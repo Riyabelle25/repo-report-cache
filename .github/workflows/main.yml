@@ -26,8 +26,9 @@ jobs:
       - name: stage changed files
         run: git add repo-report-ossf-score.json
       - name: commit changed files
-        run: git commit -m "[add] cache repo-report-ossf-score.json"
-      - name: fetch from test
-        run: git fetch origin test
-      - name: push code to test
-        run: git push origin HEAD:test
+        run: git commit -m "[add] cache repo-report-ossf-score.json" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          branch: test
