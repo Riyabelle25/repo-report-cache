@@ -20,7 +20,7 @@ jobs:
         with:
           token: ${{ secrets.TOKEN }}
       - name: switching from HTTPS to SSH
-        run: git remote set-url origin ${{ secrets.SSH }}
+        run: git remote set-url origin git@github.com:ljharb/repo-report-cache.git
       - name: check for changes
         run: git status
       - name: stage changed files
