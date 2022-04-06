@@ -34,9 +34,12 @@ const main = async () => {
 					GITHUB_AUTH_TOKEN: token,
 				},
 			});
-			const response = await octokit.request('GET /rate_limit');
-			// const { remaining } = response.rate.limit;
-			console.log(response);
+			const rateLimit = async () => {
+				const response = await octokit.request('GET /rate_limit');
+				// const { remaining } = response.rate.limit;
+				return response;
+			};
+			console.log(rateLimit());
 			repoOSSF[repository] = output.slice(17).replace('\n', '');
 			console.log('Aggregate score for', repository, ': ', output.slice(17));
 		});
