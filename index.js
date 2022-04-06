@@ -35,8 +35,8 @@ const main = async () => {
 				},
 			});
 			const response = octokit.request('GET /rate_limit');
-			const { remaining } = response.rate.limit;
-			console.log(remaining);
+			// const { remaining } = response.rate.limit;
+			console.log(response);
 			repoOSSF[repository] = output.slice(17).replace('\n', '');
 			console.log('Aggregate score for', repository, ': ', output.slice(17));
 		});
