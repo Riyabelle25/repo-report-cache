@@ -10,8 +10,8 @@ const fs = require('fs/promises');
 
 const main = async () => {
 	try {
-		// const token = core.getInput('token', { required: true }); // to be used when introducing GH Action YAML
-		const token = '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';
+		const token = core.getInput('token', { required: true }); // to be used when introducing GH Action YAML
+
 		/*
 		 * const {GH_TOKEN} = process.env;
 		 * const token = GH_TOKEN;
