@@ -3,18 +3,20 @@
 'use strict';
 
 const core = require('@actions/core');
+const { Octokit } = require('@octokit/core');
 // const github = require('@actions/github');
 const { execSync } = require('child_process');
 const fs = require('fs/promises');
 
 const main = async () => {
 	try {
-		const token = core.getInput('token', { required: true }); // to be used when introducing GH Action YAML
+		// const token = core.getInput('token', { required: true }); // to be used when introducing GH Action YAML
+		const token = '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';
 		/*
 		 * const {GH_TOKEN} = process.env;
 		 * const token = GH_TOKEN;
 		 */
-
+		const octokit = new Octokit({ auth: token });
 		const getRepos = execSync('npx repo-report ls', {
 			encoding: 'utf-8', env: {
 				...process.env,
@@ -32,6 +34,9 @@ const main = async () => {
 					GITHUB_AUTH_TOKEN: token,
 				},
 			});
+			const response = octokit.request('GET /rate_limit');
+			const { remaining } = response.rate.limit;
+			console.log(remaining);
 			repoOSSF[repository] = output.slice(17).replace('\n', '');
 			console.log('Aggregate score for', repository, ': ', output.slice(17));
 		});
