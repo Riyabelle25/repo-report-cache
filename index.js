@@ -25,7 +25,7 @@ const main = async () => {
 		});
 		const repositories = getRepos.slice(0, getRepos.length - 1).split('\n');
 		const repoOSSF = {};
-		repositories.forEach((repository) => {
+		repositories.forEach(async (repository) => {
 			console.log(repository);
 			const cmd = `scorecard --repo=github.com/${repository} | grep Aggregate`;
 			const output = execSync(cmd, {
@@ -36,10 +36,10 @@ const main = async () => {
 			});
 			const rateLimit = async () => {
 				const response = await octokit.request('GET /rate_limit');
-				// const { remaining } = response.rate.limit;
 				return response;
 			};
-			console.log(rateLimit());
+			const getRateLimit = await rateLimit();
+			console.log(getRateLimit);
 			repoOSSF[repository] = output.slice(17).replace('\n', '');
 			console.log('Aggregate score for', repository, ': ', output.slice(17));
 		});
@@ -49,6 +49,7 @@ const main = async () => {
 		console.log(result);
 
 	} catch (error) {
+		console.log('hi');
 		core.setFailed(error.message);
 	}
 };
