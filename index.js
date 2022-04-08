@@ -40,7 +40,11 @@ const main = async () => {
 			};
 			const getRateLimit = await rateLimit();
 			console.log(getRateLimit.data.rate);
-			repoOSSF[repository] = output.slice(17).replace('\n', '');
+			const writeOSSF = async () => {
+				repoOSSF[repository] = await output.slice(17).replace('\n', '');
+			};
+			const callwriteOSSF = await writeOSSF();
+			console.log(callwriteOSSF);
 			console.log('Aggregate score for', repository, ': ', output.slice(17));
 		});
 
