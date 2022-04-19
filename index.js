@@ -35,11 +35,7 @@ const main = async () => {
 					GITHUB_AUTH_TOKEN: token,
 				},
 			});
-			const rateLimit = async () => {
-				const response = await octokit.request('GET /rate_limit');
-				return response;
-			};
-			const getRateLimit = await rateLimit();
+			const getRateLimit = await octokit.request('GET /rate_limit');
 			console.log(getRateLimit.data.rate);
 			const writeOSSF = async () => {
 				repoOSSF[repository] = await output.slice(17).replace('\n', '');
