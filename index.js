@@ -26,7 +26,7 @@ const main = async () => {
 		const repositories = getRepos.slice(0, getRepos.length - 1).split('\n');
 		const repoOSSF = {};
 		repositories.reduce(async (prev, repository) => {
-		  await prev;
+			await prev;
 			console.log(repository);
 			const cmd = `scorecard --repo=github.com/${repository} | grep Aggregate`;
 			const output = execSync(cmd, {
