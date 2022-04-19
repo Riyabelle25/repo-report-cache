@@ -43,7 +43,7 @@ const main = async () => {
 			const callwriteOSSF = await writeOSSF();
 			console.log(callwriteOSSF);
 			console.log('Aggregate score for', repository, ': ', output.slice(17));
-		});
+		}, Promise.resolve());
 
 		console.log('hi', repoOSSF);
 		const json = JSON.stringify(repoOSSF, null, 4);
