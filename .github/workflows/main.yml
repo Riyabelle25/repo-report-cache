@@ -5,7 +5,8 @@ on:
     - cron: "0 0 1 1-12 *"
   push:
     branches:
-      - 'rate-limit'
+      - 'rate-limit' 
+      - 'write-JSON'
 
 jobs:
   openssf:
