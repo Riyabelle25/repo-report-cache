@@ -39,16 +39,17 @@ const main = async () => {
 			console.log(getRateLimit.data.rate);
 			const writeOSSF = async () => {
 				repoOSSF[repository] = await output.slice(17).replace('\n', '');
+                console.log("42", repoOSSF)
 			};
 			const callwriteOSSF = await writeOSSF();
 			console.log(callwriteOSSF);
 			console.log('Aggregate score for', repository, ': ', output.slice(17));
-		}, Promise.resolve());
-
-		console.log('hi', repoOSSF);
-		const json = JSON.stringify(repoOSSF, null, 4);
-		const result = await fs.writeFile('metadata-ossf-score.json', json, 'utf8');
-		console.log(result);
+		}, Promise.resolve()).then(() => {
+            console.log('48', repoOSSF);
+            const json = JSON.stringify(repoOSSF, null, 4);
+            const result = await fs.writeFile('metadata-ossf-score.json', json, 'utf8');
+            console.log(result);
+        });
 
 	} catch (error) {
 		core.setFailed(error.message);
