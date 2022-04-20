@@ -28,4 +28,7 @@ jobs:
       - name: commit changed files
         run: git commit -m "[add] cache metadata-ossf-score.json" metadata-ossf-score.json
       - name: Push changes
-        run: git push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          branch: rate-limit
